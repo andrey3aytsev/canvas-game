@@ -1,0 +1,35 @@
+body {
+	margin: 0;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	font-family: monospace;
+	font-size: 21px;
+	color: #fff;
+}
+canvas {
+	background: #0F003B;
+}
+.start-screen {
+	background: #111111;
+	width: 100vw;
+	height: 100vh;
+	padding: 30px 20px;
+	box-sizing: border-box;
+	position: absolute;
+	z-index: 100;
+	text-align: center;
+}
+input, button {
+	height: 40px;
+	border: 2px solid #fff;
+	font-size: 21px;
+	font-family: monospace;
+	color: #fff;
+	background: transparent;
+	box-sizing: border-box;
+	width: 100%;
+	margin-bottom: 20px;
+	outline: none;
+	padding: 0 10px;
+}
