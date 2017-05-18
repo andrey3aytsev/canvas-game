@@ -45,41 +45,6 @@ io.on('connection', function(socket) {
 		socket.to(user.room).emit('send coord', user);
 	});
 
-/*	socket.on('create area', function(data, areaName) {
-		areas.push(areaName);
-		socket.join(areaName);
-		if (!users[data.id]) {
-			users[data.id] = data;
-		};
-		io.to(areaName).emit('send users', users);
-	});
-
-	socket.on('join to', function(data, areaName) {
-		socket.join(areaName);
-		if (!users[data.id]) {
-			users[data.id] = data;
-		};
-		io.to(areaName).emit('send users', users);
-	});
-
-	socket.on('get areas', function() {
-		socket.emit('get areas', areas);
-	})
-
-	socket.on('user generated', function(data) {
-		if (!users[data.id]) {
-			users[data.id] = data;
-		}
-	});
-
-	socket.on('update', function(data) {
-		socket.broadcast.emit('update', data);
-		socket.emit('update', data);
-	});
-
-
-	*/
-	
 	socket.on('disconnect', function() {
 		rooms.forEach(function(room) {
 			room.users.forEach(function(user, index) {
@@ -91,9 +56,6 @@ io.on('connection', function(socket) {
 		});
 	});
 });
-
-
-
 
 server.listen(port, function () {
     console.log(`App listening on port ${port}`);
