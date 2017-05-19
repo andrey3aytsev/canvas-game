@@ -19,6 +19,10 @@ var app = {
 		app.canvas.width = $(window).width();
 		app.canvas.height = $(window).height();
 		app.createStars(100);
+		$(window).on('resize', function() {
+			app.canvas.width = $(this).width();
+			app.canvas.height = $(this).height();
+		})
 	},
 	createStars: function(count) {
 		for (var i = 0; i < count; i++) {
