@@ -18,7 +18,7 @@ var app = {
 		createjs.Touch.enable(app.stage);
 		app.canvas.width = $(window).width();
 		app.canvas.height = $(window).height();
-		app.createStars(100);
+		app.createStars(1000);
 		$(window).on('resize', function() {
 			app.canvas.width = $(this).width();
 			app.canvas.height = $(this).height();
@@ -28,8 +28,8 @@ var app = {
 		for (var i = 0; i < count; i++) {
 			var shape = new createjs.Shape();
 			shape.radius = Math.random() * 2;
-			shape.x = Math.random()*canvas.width;
-			shape.y = Math.random()*canvas.height;
+			shape.x = Math.random()*1920;
+			shape.y = Math.random()*1920;
 			shape.graphics.beginFill('#F1F1A0');
 			shape.graphics.drawCircle(0, 0, shape.radius);
 			app.stage.addChild(shape); 
