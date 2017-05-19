@@ -73,7 +73,7 @@ var app = {
 		circle.y = app.circles[app.id].y;
 		circle.alpha = 0.9;
 		app.stage.addChild(circle);
-		createjs.Tween.get(circle).to({ alpha: 0, scaleX: 0, scaleY: 0 }, 100);
+		createjs.Tween.get(circle).to({ alpha: 0, scaleX: 0, scaleY: 0 }, 200);
 		app.stage.update();
 	}
 };
@@ -96,7 +96,7 @@ app.socket.on('send coord', function(user) {
 	circle.y = user.y;
 	circle.alpha = 0.9;
 	app.stage.addChild(circle);
-	createjs.Tween.get(circle).to({ alpha: 0, scaleX: 0, scaleY: 0 }, 100);
+	createjs.Tween.get(circle).to({ alpha: 0, scaleX: 0, scaleY: 0 }, 200);
 });
 
 app.socket.on('send rooms', function(rooms) {
