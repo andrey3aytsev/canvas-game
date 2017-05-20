@@ -18,22 +18,46 @@ var app = {
 		createjs.Touch.enable(app.stage);
 		app.canvas.width = $(window).width();
 		app.canvas.height = $(window).height();
-		app.createStars(1000);
+		app.createDots(1000);
+		app.drawGrid();
 		$(window).on('resize', function() {
 			app.canvas.width = $(this).width();
 			app.canvas.height = $(this).height();
 		})
 	},
-	createStars: function(count) {
+	createDots: function(count) {
 		for (var i = 0; i < count; i++) {
 			var shape = new createjs.Shape();
 			shape.radius = Math.random() * 2;
 			shape.x = Math.random()*1920;
 			shape.y = Math.random()*1920;
-			shape.graphics.beginFill('#F1F1A0');
+			shape.graphics.beginFill('#879D26');
 			shape.graphics.drawCircle(0, 0, shape.radius);
 			app.stage.addChild(shape); 
 		}
+	},
+	drawGrid: function() {
+		var i = 0;
+		var j = app.canvas.width/2 - 20;
+		while (i < app.canvas.height) {
+			var grid = new createjs.Shape();
+			grid.graphics.setStrokeStyle(1).beginStroke('rgba(255,255,255,1)');
+			grid.graphics.moveTo(app.canvas.width/2 - 20, i);
+			grid.graphics.lineTo(app.canvas.width/2 + 20, i);
+			grid.graphics.endStroke();
+			app.stage.addChild(grid);
+			i += 5;
+		};
+		while (j < app.canvas.width/2 + 21) {
+			var grid = new createjs.Shape();
+			grid.graphics.setStrokeStyle(1).beginStroke('rgba(255,255,255,1)');
+			grid.graphics.moveTo(j, 0);
+			grid.graphics.lineTo(j, app.canvas.height);
+			grid.graphics.endStroke();
+			app.stage.addChild(grid);
+			j += 5;
+		};
+
 	},
 	generateUser: function(room) {
 		app.room = room;
