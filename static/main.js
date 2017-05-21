@@ -20,6 +20,7 @@ var app = {
 		app.canvas.height = $(window).height();
 		app.createDots(1000);
 		app.drawGrid();
+		app.drawBall();
 		$(window).on('resize', function() {
 			app.canvas.width = $(this).width();
 			app.canvas.height = $(this).height();
@@ -59,12 +60,22 @@ var app = {
 		};
 
 	},
+	drawBall: function() {
+		var ball = new createjs.Shape();
+		ball.radius = 30;
+		ball.x = app.canvas.width/2;
+		ball.y = app.canvas.height/2;
+		ball.graphics.beginFill('#ffffff');
+		ball.shadow = new createjs.Shadow("rgba(0,0,0,.15)", 0, 0, 20);
+		ball.graphics.drawCircle(0, 0, ball.radius);
+		app.stage.addChild(ball);
+	},
 	generateUser: function(room) {
 		app.room = room;
 		var data = {
 			id: app.id,
 			color: "#" + Math.floor(Math.random()*0xFFFFFF).toString(16),
-			radius: 10 + Math.random() * 30,
+			radius: 20 + Math.random() * 30,
 			room: room
 		};
 		data.x = app.canvas.width/2 - data.radius/2;
